@@ -19,9 +19,16 @@ console.log("hello world");
 // Write `runningTotal()` (no input). Start let sum = 0, add 8, add 8,
 // subtract 1, then RETURN sum.
 // your code here
-// let = runningTotal()
-// let sum = 0;
-// console.log(runningTotal());
+function runningTotal() {
+  let sum = 0;
+  sum += 8;
+  sum += 8;
+  sum -= 1;
+  return sum;
+}
+console.log(runningTotal());
+console.log(runningTotal() + 5);
+console.log(runningTotal() * 2);
 // TEST 1:  runningTotal()      ->  15
 // TEST 2:  runningTotal() + 5  ->  20
 // TEST 3:  runningTotal() * 2  ->  30
@@ -30,10 +37,13 @@ console.log("hello world");
 // Write `swapLabel(a, b)` that RETURNS b + "-" + a (the two joined,
 // swapped, with a dash between).
 // your code here
-// let = swapLabel(a,b)
-//     return b + "-" + a
-
-// console.log(swapLabel("left", "right"));
+function swapLabel(a, b) {
+  return b + "-" + a;
+  // return `${b}-${a}` орчин үеийн бичих арга нь - Бэктек (Template Literals)ашигласан бичих арга нь
+}
+console.log(swapLabel("left", "right"));
+console.log(swapLabel("1", "2"));
+console.log(swapLabel("a", "b"));
 // TEST 1:  swapLabel("left", "right")  ->  "right-left"
 // TEST 2:  swapLabel("1", "2")         ->  "2-1"
 // TEST 3:  swapLabel("a", "b")         ->  "b-a"
@@ -41,8 +51,14 @@ console.log("hello world");
 // ----- 3. Triple then bump -----
 // Write `tripleBump(n)`. Set let x = n * 3, then add 1 to x, then RETURN x.
 // your code here
-
-// console.log(tripleBump(4));
+function tripleBump(n) {
+  let x = n * 3;
+  x += 1;
+  return x;
+}
+console.log(tripleBump(4));
+console.log(tripleBump(0));
+console.log(tripleBump(10));
 // TEST 1:  tripleBump(4)   ->  13
 // TEST 2:  tripleBump(0)   ->  1
 // TEST 3:  tripleBump(10)  ->  31
@@ -50,8 +66,13 @@ console.log("hello world");
 // ----- 4. Full name -----
 // Write `fullName(first, last)` that RETURNS the two joined with one space.
 // your code here
-
-// console.log(fullName("Ada", "Lovelace"));
+function fullName(first, last) {
+  return first + " " + last;
+  // return `${first} ${last}` template literalis ашиглан бичсэн орчин үеийн арга
+}
+console.log(fullName("Ada", "Lovelace"));
+console.log(fullName("Sam", "Lee"));
+console.log(fullName("A", "B"));
 // TEST 1:  fullName("Ada", "Lovelace")  ->  "Ada Lovelace"
 // TEST 2:  fullName("Sam", "Lee")       ->  "Sam Lee"
 // TEST 3:  fullName("A", "B")           ->  "A B"
@@ -60,8 +81,14 @@ console.log("hello world");
 // Write `withTax(price)`. Use const TAX = 0.1, then RETURN price plus
 // price * TAX.
 // your code here
-
-// console.log(withTax(100));
+function withTax(price) {
+  const TAX = 0.1;
+  price += price * TAX;
+  return price;
+}
+console.log(withTax(100));
+console.log(withTax(50));
+console.log(withTax(0));
 // TEST 1:  withTax(100)  ->  110
 // TEST 2:  withTax(50)   ->  55
 // TEST 3:  withTax(0)    ->  0
@@ -69,8 +96,14 @@ console.log("hello world");
 // ----- 6. Count up by one, three times -----
 // Write `countUp3(start)`. Set let c = start, then c++ three times, RETURN c.
 // your code here
-
-// console.log(countUp3(7));
+function countUp3(start) {
+  let c = start;
+  c += 3;
+  return c;
+}
+console.log(countUp3(7));
+console.log(countUp3(0));
+console.log(countUp3(-3));
 // TEST 1:  countUp3(7)   ->  10
 // TEST 2:  countUp3(0)   ->  3
 // TEST 3:  countUp3(-3)  ->  0
@@ -78,8 +111,12 @@ console.log("hello world");
 // ----- 7. Average of two -----
 // Write `avgTwo(a, b)` that RETURNS the average of a and b.
 // your code here
-
-// console.log(avgTwo(4, 8));
+function avgTwo(a, b) {
+  return (a + b) / 2;
+}
+console.log(avgTwo(4, 8));
+console.log(avgTwo(10, 20));
+console.log(avgTwo(3, 3));
 // TEST 1:  avgTwo(4, 8)    ->  6
 // TEST 2:  avgTwo(10, 20)  ->  15
 // TEST 3:  avgTwo(3, 3)    ->  3
@@ -88,8 +125,14 @@ console.log("hello world");
 // Write `doubleArea(w, h)`. Set let area = w * h, then reassign
 // area = area * 2, RETURN area.
 // your code here
-
-// console.log(doubleArea(3, 4));
+function doubleArea(w, h) {
+  let area = w * h;
+  area = area * 2;
+  return area;
+}
+console.log(doubleArea(3, 4));
+console.log(doubleArea(5, 2));
+console.log(doubleArea(1, 1));
 // TEST 1:  doubleArea(3, 4)  ->  24
 // TEST 2:  doubleArea(5, 2)  ->  20
 // TEST 3:  doubleArea(1, 1)  ->  2
@@ -121,7 +164,7 @@ console.log(whatType(true));
 // Write `toNumber(text)` that RETURNS text turned into a real number.
 // your code here
 function toNumber(text) {
-  return text;
+  return Number(text);
 }
 console.log(toNumber("42"));
 console.log(toNumber("7") + 1);
@@ -185,6 +228,7 @@ function asBoolean(value) {
   } else {
     return false;
   }
+  // return Boolean(value) Хураангуй байдлаар бичих арга
 }
 console.log(asBoolean(0));
 console.log(asBoolean(1));
@@ -215,7 +259,9 @@ console.log(isMissing("x"));
 // character, RETURN the typeof that character.
 // your code here
 function firstDigitType(n) {
-  return "string";
+  let text = String(n);
+  let firstChar = text[0];
+  return typeof firstChar;
 }
 console.log(firstDigitType(42));
 console.log(firstDigitType(7));
@@ -2698,7 +2744,7 @@ console.log(mostPopulousNames(countries)[0]);
 // your code here
 function biggestIn(db, continent) {
   return db
-    .filter((item) => item.continent=== continent)
+    .filter((item) => item.continent === continent)
     .sort((a, b) => b.continent - a.continent)
     .map((item) => item.name);
 }
